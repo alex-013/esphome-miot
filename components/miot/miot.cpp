@@ -15,7 +15,7 @@
 #endif
 
 #ifdef USE_OTA
-#include "esphome/components/ota/ota_component.h"
+#include "esphome/components/esphome/ota/ota_esphome.h"
 #endif
 
 #ifdef USE_TIME
