@@ -14,10 +14,6 @@
 #include "esphome/components/captive_portal/captive_portal.h"
 #endif
 
-#ifdef USE_OTA
-#include "esphome/components/esphome/ota/ota_esphome.h"
-#endif
-
 #ifdef USE_TIME
 #include "esphome/components/time/real_time_clock.h"
 #endif
@@ -59,22 +55,6 @@ void Miot::setup() {
     this->set_interval("heartbeat", 60000, [this] {
       set_property(heartbeat_siid_, heartbeat_piid_, MiotValue(60));
     });
-
-#ifdef USE_OTA
-  /*ota::global_ota_component->add_on_state_callback([this](ota::OTAState state, float progress, uint8_t error) {
-    switch (state) {
-    case ota::OTA_STARTED:
-      // directly send this to indicate a firmware update, as loop() won't get called anymore
-      send_reply_("down MIIO_net_change updating");
-      break;
-    case ota::OTA_ERROR:
-      queue_net_change_command(true);
-      break;
-    default:
-      break;
-    }
-  });*/
-#endif
 }
 
 void Miot::loop() {
