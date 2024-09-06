@@ -44,4 +44,4 @@ async def to_code(config):
     if (CONF_MIOT_HEARTBEAT_SIID in config) and (CONF_MIOT_HEARTBEAT_PIID in config):
         cg.add(var.set_heartbeat_config(config[CONF_MIOT_HEARTBEAT_SIID], config[CONF_MIOT_HEARTBEAT_PIID]))
 
-    cg.add_define("USE_OTA_STATE_CALLBACK")
+    #cg.add_define("USE_OTA_STATE_CALLBACK")
